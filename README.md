@@ -1,4 +1,5 @@
 # cats
  meow
-This program will meow soon, wait for the release (please).
+This program will meow
 
+please install python and pygame (pip install pygame)
