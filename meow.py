@@ -1,20 +1,9 @@
-import tkinter as tk
-from tkinter import filedialog
-import pygame
+import time
+from playsound import playsound
 
-pygame.mixer.init()
-
-sound_file = 'meow.wav'
-
-def cat():
-    print("meow")
-    pygame.mixer.Sound(sound_file).play()
-
-root = tk.Tk()
-root.title("Meow")
-root.geometry("300x300")
-
-button = tk.Button(root, text="click to meow", command=cat)
-button.pack()
-
-root.mainloop()
+def play_sound():
+    while True:
+        playsound("meow.wav")
+        time.sleep(1)
+if __name__ == "__main__":
+    play_sound()
