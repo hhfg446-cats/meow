@@ -1,17 +1,20 @@
+import tkinter as tk
+from tkinter import filedialog
 import pygame
-import sys
 
-pygame.init()
+pygame.mixer.init()
 
-meow_sound = pygame.mixer.Sound("meow.wav")
+sound_file = 'meow.wav'
 
-screen = pygame.display.set_mode((400, 300))
-pygame.display.set_caption("meow")
+def cat():
+    print("meow")
+    pygame.mixer.Sound(sound_file).play()
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        elif event.type == pygame.KEYDOWN:
-            meow_sound.play()
+root = tk.Tk()
+root.title("Meow")
+root.geometry("300x300")
+
+button = tk.Button(root, text="click to meow", command=cat)
+button.pack()
+
+root.mainloop()
