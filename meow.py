@@ -1,20 +1,20 @@
-import tkinter as tk
-from tkinter import filedialog
 import pygame
+import sys
 
-pygame.mixer.init()
+# Инициализация Pygame
+pygame.init()
 
-sound_file = 'meow.wav'
+# Загрузка звука мяуканья
+meow_sound = pygame.mixer.Sound("meow.wav")
 
-def cat():
-    print("meow")
-    pygame.mixer.Sound(sound_file).play()
+# Создание окна
+screen = pygame.display.set_mode((400, 300))
+pygame.display.set_caption("meow")
 
-root = tk.Tk()
-root.title("Meow")
-root.geometry("300x300")
-
-button = tk.Button(root, text="click to meow", command=cat)
-button.pack()
-
-root.mainloop()
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:  # Если нажата клавиша
+            meow_sound.play()  # Воспроизводим звук мяуканья
